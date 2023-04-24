@@ -244,7 +244,7 @@ git_refs_url=$(jq .repository.git_refs_url "$GITHUB_EVENT_PATH" | tr -d '"' | se
 echo "$dt: **pushing tag $new to repo $full_name"
 
 git_refs_response=$(
-curl -s -X POST "$git_refs_url" \
+curl -s -v -X POST "$git_refs_url" \
 -H "Authorization: token $GITHUB_TOKEN" \
 -d @- << EOF
 
